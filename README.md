@@ -28,10 +28,16 @@ Things you may want to cover:
 
 ## Part Zero
 - What are some things the terminal command rails new blog does?
+  - sets up a new project with all the files you will need to make a basic ruby project
+  - installs all the gem dependencies you will need with a bundle install
 - What does the command bundle do?
+  - installs AND/OR updates the gem dependencies you are using in your project and tells you the version you are using
 - What is config/routes.rb for?
+  - this is where we configure and tell Ruby the verbs, routes and view/templates we want to use, in other words, where we specify our RESTful routes
 - What is app/views/layouts/application.html.erb doing for the project?
+  This is where we use HTML and embedded Ruby what data to show and how to structure it
 - What is the Gemfile for?
+  - this tells the bundler which gem files to install and if you change it, you must run bundle again to update the dependencies
 
 ## Part One
 - What is a "resource"?
