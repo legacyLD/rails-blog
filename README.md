@@ -39,7 +39,7 @@ Things you may want to cover:
 - What is a migration? How is it related to the app's database schema (db/schema.rb)?
 - What are some methods we can use to CRUD resources for a model, from inside a controller file? It may help to look at controller app/controllers/articles_controller.rb, and section 5 of the ActiveRecord Rails Guide.
 
-## Part Three
+## Part Two
 - In Rails RESTFUL routes, the index, show, new, and edit routes render HTML files. What should a user see on each of - these pages?
 - What is the difference between a "layout" template and a "partial" template? Give an example of when you've used each.
 - Examine the HTML created by a form_for helper in your code. Why should we use form_for and helpers like f.text_area or f.email_field instead of writing Rails forms by hand?
