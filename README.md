@@ -63,4 +63,6 @@ Things you may want to cover:
 - Class names in Ruby must begin with a capital letter.
 - When we write an index action, the usual practice is to place it as the first method in the controller.
 - Private must be at the very bottom: "The destroy method is generally the last CRUD action in the controller, and like the other public CRUD actions, it must be placed before any private or protected methods." This will cause an error if you list private before anything else
+- If you want to link to an action in the same controller, you don't need to specify the :controller option, as Rails will use the current controller by default.
+- In development mode (which is what you're working in by default), Rails reloads your application with every browser request, so there's no need to stop and restart the web server when a change is made.
 - 
