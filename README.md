@@ -57,7 +57,12 @@ Things you may want to cover:
 - not sure what this means, read further later
   - Why do you have to bother? The ability to grab and automatically assign all controller parameters to your model in one shot makes the programmer's job easier, but this convenience also allows malicious use. What if a request to the server was crafted to look like a new article form submit but also included extra fields with values that violated your application's integrity? They would be 'mass assigned' into your model and then into the database along with the good stuff - potentially breaking your application or worse.
 
-  We have to whitelist our controller parameters to prevent wrongful mass assignment. In this case, we want to both allow and require the title and text parameters for valid use of create. The syntax for this introduces require and permit. The change will involve one line in the create action:
+  - We have to whitelist our controller parameters to prevent wrongful mass assignment. In this case, we want to both allow and require the title and text parameters for valid use of create. The syntax for this introduces require and permit. The change will involve one line in the create action:
+- ???
+  - The delete routing method should be used for routes that destroy resources. If this was left as a typical get route, it could be possible for people to craft malicious URLs like this:
+
+  - <a href='http://example.com/articles/1/destroy'>look at this cat!</a>
+
 
 ## Things to Remember
 - Class names in Ruby must begin with a capital letter.
@@ -65,4 +70,4 @@ Things you may want to cover:
 - Private must be at the very bottom: "The destroy method is generally the last CRUD action in the controller, and like the other public CRUD actions, it must be placed before any private or protected methods." This will cause an error if you list private before anything else
 - If you want to link to an action in the same controller, you don't need to specify the :controller option, as Rails will use the current controller by default.
 - In development mode (which is what you're working in by default), Rails reloads your application with every browser request, so there's no need to stop and restart the web server when a change is made.
-- 
+-
