@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
-  
+
   # SHOW
   def show
     @article = Article.find(params[:id])
@@ -12,16 +12,6 @@ class ArticlesController < ApplicationController
   # NEW
   def new
   end
-
-  # def create
-  #   # @article = Article.new(params[:article])
-    # @article = Article.new(params.require(:article).permit(:title, :text))
-  #
-  #   @article.save
-  #   redirect_to @article
-  # end
-
-  # CREATE
 
   def create
     @article = Article.new(article_params)
