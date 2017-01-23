@@ -58,7 +58,48 @@ Things you may want to cover:
   - Why do you have to bother? The ability to grab and automatically assign all controller parameters to your model in one shot makes the programmer's job easier, but this convenience also allows malicious use. What if a request to the server was crafted to look like a new article form submit but also included extra fields with values that violated your application's integrity? They would be 'mass assigned' into your model and then into the database along with the good stuff - potentially breaking your application or worse.
 
   We have to whitelist our controller parameters to prevent wrongful mass assignment. In this case, we want to both allow and require the title and text parameters for valid use of create. The syntax for this introduces require and permit. The change will involve one line in the create action:
-- 
+- THIS WORKS:
+  def create
+    @article = Article.new(article_params)
+
+    @article.save
+    redirect_to @article
+
+    private
+    def article_params
+      params.require(:article).permit(:title, :text)
+    end
+
+  end
+- THIS DOES NOT
+  def create
+    @article = Article.new(article_params)
+
+    @article.save
+    redirect_to @article
+  end
+
+  private
+    def article_params
+      params.require(:article).permit(:title, :text)
+    end
+
+- SHOWS ERROR:
+
+    NoMethodError in Articles#show
+    Showing /Users/lauradean/wdi/rails-blog/app/views/articles/show.html.erb where line #3 raised:
+
+    <!-- undefined method `title' for nil:NilClass
+    Extracted source (around line #3):
+
+    <p>
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </p>
+
+    <p>
+
+    Rails.root: /Users/lauradean/wdi/rails-blog -->
 
 ## Things to Remember
 - Class names in Ruby must begin with a capital letter.
