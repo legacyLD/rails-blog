@@ -50,3 +50,15 @@ Things you may want to cover:
 - What is the difference between a "layout" template and a "partial" template? Give an example of when you've used each.
 - Examine the HTML created by a form_for helper in your code. Why should we use form_for and helpers like f.text_area or f.email_field instead of writing Rails forms by hand?
 - How do we make data from the controller available in the view?
+
+## Questions
+- in section 5.5 what does the following mean?
+  - Because you're working in the development environment by default, this command will apply to the database defined in the development section of your config/database.yml file. If you would like to execute migrations in another environment, for instance in production, you must explicitly pass it when invoking the command: bin/rails db:migrate RAILS_ENV=production.
+- not sure what this means, read further later
+  - Why do you have to bother? The ability to grab and automatically assign all controller parameters to your model in one shot makes the programmer's job easier, but this convenience also allows malicious use. What if a request to the server was crafted to look like a new article form submit but also included extra fields with values that violated your application's integrity? They would be 'mass assigned' into your model and then into the database along with the good stuff - potentially breaking your application or worse.
+
+  We have to whitelist our controller parameters to prevent wrongful mass assignment. In this case, we want to both allow and require the title and text parameters for valid use of create. The syntax for this introduces require and permit. The change will involve one line in the create action:
+- 
+
+## Things to Remember
+- Class names in Ruby must begin with a capital letter.
